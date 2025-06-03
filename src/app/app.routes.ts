@@ -4,11 +4,11 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'clients',
+    redirectTo: 'client',
     pathMatch: 'full',
   },
   {
-    path: 'clients',
+    path: 'client',
     component: MainLayoutComponent,
     loadChildren: () => import('./feature/client/client.routes').then(m => m.routes),
   },

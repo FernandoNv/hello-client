@@ -8,12 +8,18 @@ import { FooterComponent } from '../../ui/footer/footer.component';
   imports: [HeaderComponent, RouterOutlet, FooterComponent],
   template: `
     <app-header />
-    <main class="min-h-[calc(100dvh-51.19px-58px)] w-full">
+    <main class="px-2 min-h-[calc(100dvh-51.19px-66px)] w-full">
       <router-outlet />
     </main>
     <app-footer />
   `,
-  styles: ``,
+  styles: `
+    :host {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainLayoutComponent {}

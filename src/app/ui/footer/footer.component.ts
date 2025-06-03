@@ -4,8 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-footer',
   imports: [],
   template: `
-    <footer class="bg-gray-900 p-4">
-      <div class="mx-auto container flex justify-center">
+    <footer class="px-2">
+      <div class="py-2 bg-gray-900 flex justify-center rounded">
         <small class="text-gray-100">Fernando Vieira</small>
       </div>
     </footer>
@@ -14,6 +14,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     :host {
       width: 100%;
       height: 100%;
+      display: block;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

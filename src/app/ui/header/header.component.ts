@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-header',
   imports: [Menubar, Avatar, Ripple, RouterLink, ToggleSwitch, FormsModule],
   template: `
-    <header>
+    <header class="pt-2 px-2">
       <p-menubar [model]="items()">
         <ng-template #start>
           <p class="text-xl font-bold">HelloClient</p>
@@ -48,9 +48,9 @@ export class HeaderComponent {
       route: '/',
     },
     {
-      label: 'Clients',
+      label: 'Client',
       icon: 'pi pi-home',
-      route: '/clients',
+      route: '/client',
     },
   ]);
 
