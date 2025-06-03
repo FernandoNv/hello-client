@@ -1,5 +1,1 @@
 @reference "tailwindcss";
-
-.card {
-  @apply bg-red-400;
-}
