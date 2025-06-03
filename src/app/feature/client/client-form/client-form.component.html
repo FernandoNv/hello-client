@@ -41,6 +41,7 @@
           pSize="large"
           id="email"
           formControlName="email"
+          appIsEmailTaken
           autocomplete="off"
         />
         <label for="email">E-mail</label>
@@ -53,6 +54,11 @@
           @if (form.get('email')?.hasError('pattern') && form.get('email')?.touched) {
             <p-message severity="error" variant="simple" size="small">
               The e-mail must have a valid value. Ex: email&#64;email.com
+            </p-message>
+          }
+          @if (form.get('email')?.hasError('emailTaken') && form.get('email')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The e-mail is already taken.
             </p-message>
           }
         </div>
@@ -95,6 +101,7 @@
             placeholder="99999-999"
             id="zipCode"
             formControlName="zipCode"
+            appZipCodeValidator
             autocomplete="off"
           />
           <label for="zipCode">Zip Code</label>
@@ -104,7 +111,7 @@
               addressGroup?.get('zipCode')?.touched
             ) {
               <p-message class="mt-2" severity="error" variant="simple" size="small">
-                Zip code is required
+                The zip code is required
               </p-message>
             }
             @if (
@@ -112,7 +119,12 @@
               addressGroup?.get('zipCode')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                Zip code must be a valid value. Ex: 99999-999
+                The zip code must be a valid value. Ex: 99999-999
+              </p-message>
+            }
+            @if (addressGroup?.get('zipCode')?.hasError('zipCodeApiError')) {
+              <p-message severity="error" variant="simple" size="small">
+                Invalid zip code. Try again.
               </p-message>
             }
           </div>
@@ -283,6 +295,12 @@
     </section>
   </p-fieldset>
   <div class="flex justify-end">
-    <p-button [disabled]="form.invalid" type="submit" label="Submit" severity="success" />
+    <p-button
+      [disabled]="form.invalid"
+      type="submit"
+      [label]="initialValue() ? 'Update' : 'Submit'"
+      [loading]="isLoading()"
+      severity="success"
+    />
   </div>
 </form>

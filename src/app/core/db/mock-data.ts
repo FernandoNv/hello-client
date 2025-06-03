@@ -6,19 +6,33 @@ export interface Client {
   id: string;
   name: string;
   email: string;
-  phone: string;
+  phone?: string;
   address: {
-    address: string;
+    street: string;
     number: string;
     city: string;
     state: string;
-    zip: string;
+    zipCode: string;
   };
 }
 
 export default class MockData implements InMemoryDbService {
   createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {
-    const clients: Client[] = [];
+    const clients: Client[] = [
+      {
+        id: 'f589af1e-f201-4278-a224-7aecec0db191',
+        email: 'email@email.com',
+        phone: '21 12222-1234',
+        name: 'Fernando Vieira',
+        address: {
+          street: 'Rua Fulano de Tal',
+          number: '10',
+          zipCode: '20970-007',
+          city: 'Rio de Janeiro',
+          state: 'Rio de Janeiro',
+        },
+      },
+    ];
 
     return { clients };
   }

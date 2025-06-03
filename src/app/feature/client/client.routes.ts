@@ -2,11 +2,14 @@ import { Routes } from '@angular/router';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClientComponent } from './client.component';
 import { ClientCreateComponent } from './client-create/client-create.component';
+import { ClientDatasource } from './client.datasource';
+import { ClientService } from './client.service';
+import { MessageService } from 'primeng/api';
 
 export const routes: Routes = [
   {
     path: '',
-    providers: [],
+    providers: [ClientDatasource, ClientService, MessageService],
     component: ClientComponent,
     children: [
       {
