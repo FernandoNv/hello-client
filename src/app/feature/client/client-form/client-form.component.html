@@ -1,0 +1,288 @@
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <p-fieldset styleClass="mb-8" legend="Personal information">
+    <section class="py-2 pt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <p-iftalabel>
+        <input
+          pInputText
+          [fluid]="true"
+          pSize="large"
+          id="name"
+          formControlName="name"
+          autocomplete="off"
+        />
+        <label for="name">Name</label>
+        <div class="h-6 mt-1">
+          @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The name is required
+            </p-message>
+          }
+          @if (form.get('name')?.hasError('minlength') && form.get('name')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The name must contain at least 3 characters
+            </p-message>
+          }
+          @if (form.get('name')?.hasError('maxlength') && form.get('name')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The name must contain a maximum of 255 characters
+            </p-message>
+          }
+          @if (form.get('name')?.hasError('pattern') && form.get('name')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The name must have a valid value. Ex: Fulano da Silva
+            </p-message>
+          }
+        </div>
+      </p-iftalabel>
+      <p-iftalabel>
+        <input
+          pInputText
+          [fluid]="true"
+          pSize="large"
+          id="email"
+          formControlName="email"
+          autocomplete="off"
+        />
+        <label for="email">E-mail</label>
+        <div class="h-6 mt-1">
+          @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The e-mail is required
+            </p-message>
+          }
+          @if (form.get('email')?.hasError('pattern') && form.get('email')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The e-mail must have a valid value. Ex: email&#64;email.com
+            </p-message>
+          }
+        </div>
+      </p-iftalabel>
+      <p-iftalabel>
+        <p-inputmask
+          size="large"
+          styleClass="w-full"
+          mask="99 99999-9999"
+          placeholder="99 99999-9999"
+          id="phone"
+          formControlName="phone"
+          autocomplete="off"
+        />
+        <label for="phone">Phone</label>
+        <div class="h-6 mt-1">
+          @if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The phone is required
+            </p-message>
+          }
+          @if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
+            <p-message severity="error" variant="simple" size="small">
+              The phone must have a valid value. Ex: 99 99999-9999
+            </p-message>
+          }
+        </div>
+      </p-iftalabel>
+    </section>
+  </p-fieldset>
+  <p-fieldset styleClass="mb-8" legend="Address information">
+    <section formGroupName="address" class="py-2 pt-6">
+      @let addressGroup = form.get('address');
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-4">
+        <p-iftalabel>
+          <p-inputmask
+            size="large"
+            styleClass="w-full"
+            mask="99999-999"
+            placeholder="99999-999"
+            id="zipCode"
+            formControlName="zipCode"
+            autocomplete="off"
+          />
+          <label for="zipCode">Zip Code</label>
+          <div class="h-6 mt-1 mt-1">
+            @if (
+              addressGroup?.get('zipCode')?.hasError('required') &&
+              addressGroup?.get('zipCode')?.touched
+            ) {
+              <p-message class="mt-2" severity="error" variant="simple" size="small">
+                Zip code is required
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('zipCode')?.hasError('pattern') &&
+              addressGroup?.get('zipCode')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                Zip code must be a valid value. Ex: 99999-999
+              </p-message>
+            }
+          </div>
+        </p-iftalabel>
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="state"
+            formControlName="state"
+            autocomplete="off"
+          />
+          <label for="state">State</label>
+          <div class="h-6 mt-1">
+            @if (
+              addressGroup?.get('state')?.hasError('required') &&
+              addressGroup?.get('state')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The state is required
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('state')?.hasError('minlength') &&
+              addressGroup?.get('state')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The state must contain at least 2 characters
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('state')?.hasError('maxlength') &&
+              addressGroup?.get('state')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The state must contain a maximum of 2 characters
+              </p-message>
+            }
+          </div>
+        </p-iftalabel>
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="city"
+            formControlName="city"
+            autocomplete="off"
+          />
+          <label for="city">City</label>
+          <div class="h-6 mt-1">
+            @if (
+              addressGroup?.get('city')?.hasError('required') && addressGroup?.get('city')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The city is required
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('city')?.hasError('minlength') && addressGroup?.get('city')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The city must contain at least 3 characters
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('city')?.hasError('maxlength') && addressGroup?.get('city')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The city must contain a maximum of 255 characters
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('city')?.hasError('pattern') && addressGroup?.get('city')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The city must have a valid value. Ex: Rio de Janeiro
+              </p-message>
+            }
+          </div>
+        </p-iftalabel>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(200px,_1fr)_150px] gap-4">
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="street"
+            formControlName="street"
+            autocomplete="off"
+          />
+          <label for="street">Street</label>
+          <div class="h-6 mt-1">
+            @if (
+              addressGroup?.get('street')?.hasError('required') &&
+              addressGroup?.get('street')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The street is required
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('street')?.hasError('minlength') &&
+              addressGroup?.get('street')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The street must contain at least 3 characters
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('street')?.hasError('maxlength') &&
+              addressGroup?.get('street')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The street must contain a maximum of 255 characters
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('street')?.hasError('pattern') &&
+              addressGroup?.get('street')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The street must have a valid value. Ex: Avenida Presidente Vargas
+              </p-message>
+            }
+          </div>
+        </p-iftalabel>
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="number"
+            formControlName="number"
+            autocomplete="off"
+          />
+          <label for="number">Number</label>
+          <div class="h-6 mt-1">
+            @if (
+              addressGroup?.get('number')?.hasError('required') &&
+              addressGroup?.get('number')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small">
+                The number is required
+              </p-message>
+            }
+            @if (
+              addressGroup?.get('number')?.hasError('min') && addressGroup?.get('number')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small"> Min 1 </p-message>
+            }
+            @if (
+              addressGroup?.get('number')?.hasError('max') && addressGroup?.get('number')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small"> 10000 max </p-message>
+            }
+            @if (
+              addressGroup?.get('number')?.hasError('pattern') &&
+              addressGroup?.get('number')?.touched
+            ) {
+              <p-message severity="error" variant="simple" size="small"> Number only </p-message>
+            }
+          </div>
+        </p-iftalabel>
+      </div>
+    </section>
+  </p-fieldset>
+  <div class="flex justify-end">
+    <p-button [disabled]="form.invalid" type="submit" label="Submit" severity="success" />
+  </div>
+</form>
