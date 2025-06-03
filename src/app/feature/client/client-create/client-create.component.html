@@ -1,0 +1,109 @@
+<h1 class="text-3xl font-bold mb-4">Create a New Client</h1>
+<form [formGroup]="form">
+  <p-fieldset styleClass="mb-8" legend="Personal information">
+    <section class="py-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <p-iftalabel>
+        <input
+          pInputText
+          [fluid]="true"
+          pSize="large"
+          id="name"
+          formControlName="name"
+          autocomplete="off"
+        />
+        <label for="name">Name</label>
+      </p-iftalabel>
+      <p-iftalabel>
+        <input
+          pInputText
+          [fluid]="true"
+          pSize="large"
+          id="email"
+          formControlName="email"
+          autocomplete="off"
+        />
+        <label for="email">E-mail</label>
+      </p-iftalabel>
+      <p-iftalabel>
+        <p-inputmask
+          size="large"
+          styleClass="w-full"
+          mask="99 99999-9999"
+          placeholder="99 99999-9999"
+          id="phone"
+          formControlName="phone"
+          autocomplete="off"
+        />
+        <label for="phone">Phone</label>
+      </p-iftalabel>
+    </section>
+    <section></section>
+  </p-fieldset>
+  <p-fieldset styleClass="mb-8" legend="Address information">
+    <section formGroupName="address" class="py-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-4">
+        <p-iftalabel>
+          <p-inputmask
+            size="large"
+            styleClass="w-full"
+            mask="99999-999"
+            placeholder="99999-999"
+            id="zipCode"
+            formControlName="zipCode"
+            autocomplete="off"
+          />
+          <label for="zipCode">Zip Code</label>
+        </p-iftalabel>
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="state"
+            formControlName="state"
+            autocomplete="off"
+          />
+          <label for="state">State</label>
+        </p-iftalabel>
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="city"
+            formControlName="city"
+            autocomplete="off"
+          />
+          <label for="city">City</label>
+        </p-iftalabel>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(200px,_1fr)_150px] gap-4">
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="street"
+            formControlName="street"
+            autocomplete="off"
+          />
+          <label for="street">Street</label>
+        </p-iftalabel>
+        <p-iftalabel>
+          <input
+            pInputText
+            class="w-full"
+            pSize="large"
+            id="number"
+            formControlName="number"
+            autocomplete="off"
+          />
+          <label for="number">Number</label>
+        </p-iftalabel>
+      </div>
+    </section>
+  </p-fieldset>
+  <div class="flex justify-end">
+    <p-button type="submit" label="Submit" severity="success" />
+  </div>
+</form>
