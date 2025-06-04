@@ -3,13 +3,12 @@ import { ClientFormComponent, IClientFormValue } from '../client-form/client-for
 import { ClientDatasource } from '../client.datasource';
 import { Client } from '../../../core/db/mock-data';
 import { MessageService } from 'primeng/api';
-import { Toast } from 'primeng/toast';
 import { Router } from '@angular/router';
 import { take, timer } from 'rxjs';
 
 @Component({
   selector: 'app-client-create',
-  imports: [ClientFormComponent, Toast],
+  imports: [ClientFormComponent],
   templateUrl: './client-create.component.html',
   styleUrl: './client-create.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

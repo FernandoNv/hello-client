@@ -5,13 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClientFormComponent, IClientFormValue } from '../client-form/client-form.component';
 import { Client } from '../../../core/db/mock-data';
 import { map, switchMap, take, tap, timer } from 'rxjs';
-import { Toast } from 'primeng/toast';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProgressSpinner } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-client-edit',
-  imports: [ClientFormComponent, Toast, ProgressSpinner],
+  imports: [ClientFormComponent, ProgressSpinner],
   templateUrl: './client-edit.component.html',
   styleUrl: './client-edit.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
