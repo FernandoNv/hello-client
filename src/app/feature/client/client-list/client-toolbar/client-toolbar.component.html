@@ -1,0 +1,48 @@
+<p-toolbar styleClass="mb-4">
+  <ng-template #start>
+    <p-button
+      (click)="newClientClick.emit()"
+      icon="pi pi-plus"
+      class="mr-2"
+      severity="primary"
+      label="new client"
+    />
+  </ng-template>
+  <ng-template #center>
+    <p-iconfield iconPosition="left">
+      <p-inputicon styleClass="pi pi-search" />
+      <input
+        [ngModel]="search"
+        (ngModelChange)="onValueChange($event)"
+        pInputText
+        type="text"
+        placeholder="Search"
+      />
+    </p-iconfield>
+  </ng-template>
+  <ng-template #end>
+    @if (view() === 'table') {
+      <p-button
+        (click)="view.set('card')"
+        icon="pi pi-id-card"
+        class="mr-2"
+        outlined
+        severity="contrast"
+        label="card view"
+      />
+    }
+
+    @if (view() === 'card') {
+      <p-button
+        (click)="view.set('table')"
+        icon="pi pi-table"
+        class="mr-2"
+        outlined
+        severity="contrast"
+        label="table view"
+      />
+    }
+  </ng-template>
+</p-toolbar>
+
+@if (search$ | async) {}
