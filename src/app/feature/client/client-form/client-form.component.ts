@@ -22,9 +22,10 @@ import { EmailTakenValidatorDirective } from '../../../ui/form/email-taken/email
 import { ClientDatasource } from '../client.datasource';
 
 export interface IClientFormValue {
+  id?: string;
   name: string;
   email: string;
-  phone: string;
+  phone?: string;
   address: {
     street: string;
     zipCode: string;
@@ -58,8 +59,8 @@ export class ClientFormComponent implements OnDestroy {
     this.zipCodeService.getAddressValuesFromCurrentZipCode(),
   );
   private readonly effectRef!: EffectRef;
+  private readonly effectRefInitialValue!: EffectRef;
   private readonly clientDatasource = inject(ClientDatasource);
-  isLoading = toSignal(this.clientDatasource.crudLoading$);
 
   protected readonly form = this.fb.group({
     name: [
@@ -88,7 +89,7 @@ export class ClientFormComponent implements OnDestroy {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255),
-          Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿÇç]+(?: [A-Za-zÀ-ÖØ-öø-ÿÇç]+)*$/),
+          Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿÇç0-9]+(?: [A-Za-zÀ-ÖØ-öø-ÿÇç0-9]+)*$/),
         ],
       ],
       number: [
@@ -121,18 +122,21 @@ export class ClientFormComponent implements OnDestroy {
       zipCode: ['', [Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)]],
     }),
   });
-
-  protected readonly initialValue = input<IClientFormValue | null>(null);
   protected readonly save = output<IClientFormValue>();
+
+  readonly initialValue = input<IClientFormValue | null>(null);
+  readonly isLoading = toSignal(this.clientDatasource.crudLoading$);
 
   constructor() {
     this.effectRef = effect(() => {
-      if (this.initialValue()) {
-        this.updateFormValues();
-      }
-
       if (this.addressValuesFromCurrentZipCode() !== null) {
         this.updateFormAddress(this.addressValuesFromCurrentZipCode()!);
+      }
+    });
+
+    this.effectRefInitialValue = effect(() => {
+      if (this.initialValue()) {
+        this.updateFormValues();
       }
     });
   }
@@ -143,7 +147,7 @@ export class ClientFormComponent implements OnDestroy {
 
     this.form.get('name')?.setValue(initialValue.name);
     this.form.get('email')?.setValue(initialValue.email);
-    this.form.get('phone')?.setValue(initialValue.phone);
+    this.form.get('phone')?.setValue(initialValue.phone ?? '');
 
     this.updateFormAddress(initialValue.address);
 
@@ -156,7 +160,10 @@ export class ClientFormComponent implements OnDestroy {
     addressFormGroup?.get('street')?.setValue(values.street);
     addressFormGroup?.get('state')?.setValue(values.state);
     addressFormGroup?.get('city')?.setValue(values.city);
-    addressFormGroup?.get('number')?.setValue(values.number ?? '');
+
+    if (values.number) {
+      addressFormGroup?.get('number')?.setValue(values.number);
+    }
 
     if (values.zipCode) {
       addressFormGroup?.get('zipCode')?.setValue(values.zipCode);
@@ -173,6 +180,7 @@ export class ClientFormComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.effectRef.destroy();
+    this.effectRefInitialValue.destroy();
     this.zipCodeService.clearAddressValuesFromCurrentZipCode();
   }
 }

@@ -1,4 +1,4 @@
-import { Directive, forwardRef, inject } from '@angular/core';
+import { Directive, forwardRef, inject, input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
   AbstractControl,
@@ -6,7 +6,7 @@ import {
   NG_ASYNC_VALIDATORS,
   ValidationErrors,
 } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, map, Observable, of, switchMap, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, of, switchMap } from 'rxjs';
 import { Client } from '../../../core/db/mock-data';
 
 @Directive({
@@ -22,6 +22,8 @@ import { Client } from '../../../core/db/mock-data';
 export class EmailTakenValidatorDirective implements AsyncValidator {
   private readonly http = inject(HttpClient);
 
+  idClient = input<string | undefined | null>(null);
+
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const email = control.value;
 
@@ -31,8 +33,14 @@ export class EmailTakenValidatorDirective implements AsyncValidator {
       debounceTime(500),
       distinctUntilChanged(),
       switchMap(email => this.http.get<Client[]>('api/clients')),
-      tap(next => console.log(next)),
-      map(next => (next.map(c => c.email).includes(email) ? { emailTaken: true } : null)),
+      map(next =>
+        next
+          .filter(c => (this.idClient ? this.idClient() !== c.id : c))
+          .map(c => c.email)
+          .includes(email)
+          ? { emailTaken: true }
+          : null,
+      ),
     );
   }
 }

@@ -5,6 +5,7 @@ import { ClientCreateComponent } from './client-create/client-create.component';
 import { ClientDatasource } from './client.datasource';
 import { ClientService } from './client.service';
 import { MessageService } from 'primeng/api';
+import { ClientEditComponent } from './client-edit/client-edit.component';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,10 @@ export const routes: Routes = [
       {
         path: 'create',
         component: ClientCreateComponent,
+      },
+      {
+        path: 'details/:id',
+        component: ClientEditComponent,
       },
     ],
   },

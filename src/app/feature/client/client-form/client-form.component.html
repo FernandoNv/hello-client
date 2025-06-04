@@ -40,9 +40,10 @@
           [fluid]="true"
           pSize="large"
           id="email"
+          autocomplete="off"
           formControlName="email"
           appIsEmailTaken
-          autocomplete="off"
+          [idClient]="this.initialValue()?.id"
         />
         <label for="email">E-mail</label>
         <div class="h-6 mt-1">

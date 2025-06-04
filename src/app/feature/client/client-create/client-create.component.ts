@@ -19,21 +19,27 @@ export class ClientCreateComponent {
   private readonly messageService = inject(MessageService);
   private readonly router = inject(Router);
 
-  constructor() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
-  }
-
   protected onSave(clientFormValue: IClientFormValue): void {
     this.clientDataSource.create(clientFormValue as Client).subscribe(next => {
       console.log(next);
+      if (next) {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Client created!',
+        });
+        timer(1300)
+          .pipe(take(1))
+          .subscribe(_ => this.router.navigateByUrl('/'));
+
+        return;
+      }
+
       this.messageService.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: 'Client created!',
+        severity: 'error',
+        summary: 'Unable to create the client',
+        detail: 'Something went wrong.',
       });
-      timer(1000)
-        .pipe(take(1))
-        .subscribe(next => this.router.navigateByUrl('/'));
     });
   }
 }

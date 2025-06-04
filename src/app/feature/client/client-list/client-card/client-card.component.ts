@@ -7,11 +7,19 @@ import { Client } from '../../../../core/db/mock-data';
   selector: 'app-client-card',
   imports: [Card, Button],
   template: `
-    <p-card [style]="{ minHeight: '190px' }">
+    <p-card
+      [style]="{
+        minHeight: '190px',
+        display: 'flex',
+        justifyContent: 'center',
+      }"
+    >
       <ng-template #title> {{ client().name }} </ng-template>
       <ng-template #subtitle> {{ client().email }} </ng-template>
       @if (client().phone) {
         <p>{{ client().phone }}</p>
+      } @else {
+        <span class="h-6 block"></span>
       }
       <ng-template #footer>
         <div class="flex gap-4 mt-1">

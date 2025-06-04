@@ -18,7 +18,7 @@ export class ClientService implements CrudService<Client> {
   }
 
   delete(id: string) {
-    return this.http.delete<void>(`${this.URL}/${id}`).pipe(delay(500));
+    return this.http.delete<string>(`${this.URL}/${id}`).pipe(delay(500));
   }
 
   create(client: Client) {

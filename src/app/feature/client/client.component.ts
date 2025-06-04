@@ -45,10 +45,6 @@ export class ClientComponent {
       routerLink: './create',
     },
     {
-      label: 'Edit a client ',
-      routerLink: './edit',
-    },
-    {
       label: 'List all clients',
       routerLink: './list',
     },
