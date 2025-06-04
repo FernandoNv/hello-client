@@ -18,10 +18,10 @@ export class ClientDatasource {
     this.loadClients();
   }
 
-  loadClients(): void {
+  loadClients(options?: { search: string }): void {
     this.loadingSubject.next(true);
     this.clientService
-      .getAll()
+      .getAll(options)
       .pipe(
         take(1),
         finalize(() => this.loadingSubject.next(false)),

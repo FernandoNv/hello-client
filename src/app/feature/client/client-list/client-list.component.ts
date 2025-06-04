@@ -85,6 +85,6 @@ export class ClientListComponent {
   }
 
   onSearchValueChange(search: string): void {
-    console.log(search);
+    this.clientDataSource.loadClients({ search });
   }
 }

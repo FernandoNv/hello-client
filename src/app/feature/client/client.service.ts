@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CrudService } from '../../core/db/crud-service';
 import { Client } from '../../core/db/mock-data';
-import { delay } from 'rxjs';
+import { delay, map } from 'rxjs';
 
 @Injectable()
 export class ClientService implements CrudService<Client> {
@@ -13,8 +13,23 @@ export class ClientService implements CrudService<Client> {
     return this.http.get<Client>(`${this.URL}/${id}`).pipe(delay(500));
   }
 
-  getAll(options?: object) {
-    return this.http.get<Client[]>(`${this.URL}/`).pipe(delay(500));
+  getAll(options?: { search: string }) {
+    if (!options) {
+      return this.http.get<Client[]>(`${this.URL}/`).pipe(delay(500)).pipe();
+    }
+
+    return this.http
+      .get<Client[]>(`${this.URL}/`)
+      .pipe(delay(500))
+      .pipe(
+        map(clients =>
+          clients.filter(c =>
+            Object.values(c).some(v =>
+              String(v).toLowerCase().includes(options.search.toLowerCase().trim()),
+            ),
+          ),
+        ),
+      );
   }
 
   delete(id: string) {

@@ -1,4 +1,9 @@
 <h1 class="text-3xl font-bold mb-4">Clients</h1>
+<app-client-toolbar
+  (searchChange)="onSearchValueChange($event)"
+  (newClientClick)="goToNewClientPage()"
+  [(view)]="view"
+/>
 @if (isLoading()) {
   <div class="w-full h-full flex flex-col justify-center items-center">
     <p-progress-spinner
@@ -9,12 +14,6 @@
     />
   </div>
 } @else {
-  <app-client-toolbar
-    (searchChange)="onSearchValueChange($event)"
-    (newClientClick)="goToNewClientPage()"
-    [(view)]="view"
-  />
-
   @if (view() === 'card') {
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
       @for (client of clients(); track client.id) {

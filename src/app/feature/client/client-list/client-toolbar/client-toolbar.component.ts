@@ -27,7 +27,7 @@ export class ClientToolbarComponent {
   protected search$ = this.searchValue$.pipe(
     debounceTime(500),
     distinctUntilChanged(),
-    tap(newSearch => (newSearch ? this.searchChange.emit(newSearch) : '')),
+    tap(newSearch => (newSearch !== undefined ? this.searchChange.emit(newSearch) : '')),
   );
 
   onValueChange(event: string) {
