@@ -8,7 +8,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { ClientToolbarComponent } from './client-toolbar/client-toolbar.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Client } from '../../../core/db/mock-data';
+import { ClientTableComponent } from './client-table/client-table.component';
 
 @Component({
   selector: 'app-client-list',
@@ -18,6 +18,7 @@ import { Client } from '../../../core/db/mock-data';
     IconFieldModule,
     InputIconModule,
     ClientToolbarComponent,
+    ClientTableComponent,
   ],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.css',
@@ -38,8 +39,10 @@ export class ClientListComponent {
     this.router.navigate(['/client/details', id]);
   }
 
-  onDelete(id: string, client: Client): void {
-    debugger;
+  onDelete(id: string): void {
+    const client = this.clients()?.find(c => c.id === id);
+    if (!client) return;
+
     this.confirmationService.confirm({
       message: `
           Are you sure that you want to delete this client? </br>

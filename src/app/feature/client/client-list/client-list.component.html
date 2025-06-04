@@ -14,19 +14,23 @@
     />
   </div>
 } @else {
-  @if (view() === 'card') {
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
-      @for (client of clients(); track client.id) {
-        <app-client-card
-          [client]="client"
-          (edit)="onEdit($event)"
-          (delete)="onDelete($event, client)"
-        />
-      }
-    </div>
-  }
+  @if (clients()!.length === 0) {
+    <h3>No data...</h3>
+  } @else {
+    @if (view() === 'card') {
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
+        @for (client of clients(); track client.id) {
+          <app-client-card [client]="client" (edit)="onEdit($event)" (delete)="onDelete($event)" />
+        }
+      </div>
+    }
 
-  @if (view() === 'table') {
-    <p>Table...</p>
+    @if (view() === 'table') {
+      <app-client-table
+        [clients]="clients()!"
+        (edit)="onEdit($event)"
+        (delete)="onDelete($event)"
+      />
+    }
   }
 }

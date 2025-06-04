@@ -11,4 +11,6 @@ import { ConfirmDialog } from 'primeng/confirmdialog';
   styleUrl: './app.component.css',
   providers: [MessageService, ConfirmationService],
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'Hello Client';
+}
