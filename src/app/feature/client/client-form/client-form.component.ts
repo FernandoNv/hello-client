@@ -68,7 +68,7 @@ export class ClientFormComponent implements OnDestroy {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(255),
-        Validators.pattern(/^[A-Za-z]+(?: [A-Za-z]+)*$/),
+        Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿÇç]+(?: [A-Za-zÀ-ÖØ-öø-ÿÇç]+)*$/),
       ],
     ],
     email: [
@@ -88,7 +88,7 @@ export class ClientFormComponent implements OnDestroy {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255),
-          Validators.pattern(/^[A-Za-z]+(?: [A-Za-z]+)*$/),
+          Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿÇç]+(?: [A-Za-zÀ-ÖØ-öø-ÿÇç]+)*$/),
         ],
       ],
       number: [
@@ -106,7 +106,7 @@ export class ClientFormComponent implements OnDestroy {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255),
-          Validators.pattern(/^[A-Za-z]+(?: [A-Za-z]+)*$/),
+          Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿÇç]+(?: [A-Za-zÀ-ÖØ-öø-ÿÇç]+)*$/),
         ],
       ],
       state: [
@@ -115,7 +115,7 @@ export class ClientFormComponent implements OnDestroy {
           Validators.required,
           Validators.minLength(2),
           Validators.maxLength(2),
-          Validators.pattern(/^[A-Za-z]+(?: [A-Za-z]+)*$/),
+          Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿÇç]+(?: [A-Za-zÀ-ÖØ-öø-ÿÇç]+)*$/),
         ],
       ],
       zipCode: ['', [Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)]],
