@@ -1,59 +1,69 @@
-# HelloClient
+# Hello Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
+Aplicação Angular para **cadastro de clientes**, com suporte a **português** e **inglês**.
 
-## Development server
+## 📋 Descrição
 
-To start a local development server, run:
+O **hello-client** é um sistema de front-end desenvolvido em Angular com o objetivo de facilitar o gerenciamento e o cadastro de clientes. A aplicação suporta múltiplos idiomas e oferece uma interface responsiva e moderna.
 
-```bash
-ng serve
-```
+## 🌐 Idiomas Suportados
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- 🇧🇷 Português
+- 🇺🇸 Inglês
 
-## Code scaffolding
+## 🛠️ Tecnologias Utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular 19 (com Standalone Components)
+- i18n (internacionalização compilada)
+- ngx-translate (tradução dinâmica)
+- TypeScript
 
-```bash
-ng generate component component-name
-```
+## 🚀 Como Executar
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Pré-requisitos
 
-```bash
-ng generate --help
-```
+- Node.js (v22 ou superior)
 
-## Building
-
-To build the project run:
+### Instalação
+Clone o repositório:
 
 ```bash
-ng build
+git clone https://github.com/FernandoNv/hello-client
+cd hello-client
+
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Rodar a aplicação
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+#### Rodar em inglês
 ```bash
-ng test
+npm i
+npm run start
 ```
+A aplicação irá estar disponível em localhost:4200
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### Rodar em português e inglês
+Para o suporte a português, precisamos fazer o build e servir o app. Para isso executamos o seguinte comando:
 ```bash
-ng e2e
+npm run start-build
+```
+Caso o terminal peça para confirmar uma ação, aperte em confirmar pois ele vai instalar o http-server caso não esteja instalado. Esse comando roda as seguintes instruções:
+```bash
+ng build && npx http-server .\dist\hello-client\browser\
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Ao final do comando irá aparecer a rota da aplicação.
+Ex:
+```bash
+Available on:
+  http://192.168.1.5:8080
+  http://127.0.0.1:8080
+```
+Ao acessar a rota iremos ter as duas opções de idiomas
+```bash
+en/
+pt/
+```
+Então é só utilizar.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Valeu! 👍
