@@ -30,7 +30,7 @@ export class ClientListComponent {
   private readonly confirmationService = inject(ConfirmationService);
   private readonly messageService = inject(MessageService);
 
-  protected readonly view = signal<'card' | 'table'>('card');
+  protected readonly view = signal<'card' | 'table'>('table');
 
   protected readonly clients = toSignal(this.clientDataSource.clients$);
   protected readonly isLoading = toSignal(this.clientDataSource.loading$);
@@ -83,7 +83,7 @@ export class ClientListComponent {
   }
 
   goToNewClientPage(): void {
-    debugger;
+    // debugger;
     this.router.navigate(['/client/create']);
   }
 

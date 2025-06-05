@@ -35,9 +35,8 @@ export class ClientEditComponent {
 
   protected onSave(clientFormValue: IClientFormValue): void {
     clientFormValue.id = this.id;
-    debugger;
+    // debugger;
     this.clientDataSource.update(this.id, clientFormValue as Client).subscribe(next => {
-      debugger;
       if (next) {
         this.messageService.add({
           severity: 'success',

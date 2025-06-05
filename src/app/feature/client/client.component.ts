@@ -8,10 +8,8 @@ import { Ripple } from 'primeng/ripple';
   selector: 'app-client',
   imports: [RouterOutlet, Menu, Ripple, RouterLink],
   template: `
-    <div
-      class="lg:min-h-[calc(100dvh-51.19px-74px)] h-full flex flex-col lg:flex-row flex-auto gap-2 pt-2"
-    >
-      <aside class="w-full lg:w-72 pb-2">
+    <div class="lg:h-[calc(100dvh-74px-53.19px)] flex flex-col lg:flex-row flex-auto gap-2 pt-2">
+      <aside class="hidden lg:block lg:w-72 pb-2">
         <p-menu styleClass="h-full" [model]="items()">
           <ng-template #start>
             <span class="inline-flex p-4 font-bold">Menu Options</span>
@@ -24,7 +22,7 @@ import { Ripple } from 'primeng/ripple';
           </ng-template>
         </p-menu>
       </aside>
-      <div class="w-full rounded-sm p-2 mb-2">
+      <div class="w-full h-full rounded-sm p-2 mb-2">
         <router-outlet />
       </div>
     </div>
@@ -41,7 +39,7 @@ import { Ripple } from 'primeng/ripple';
 export class ClientComponent {
   protected readonly items = signal<MenuItem[]>([
     {
-      label: 'Add a new client',
+      label: 'Create a new client',
       routerLink: './create',
     },
     {

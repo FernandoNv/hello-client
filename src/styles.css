@@ -4,3 +4,6 @@
 @import 'primeicons/primeicons.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+html {
+}

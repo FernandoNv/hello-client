@@ -1,4 +1,4 @@
-<p-toolbar styleClass="mb-4">
+<p-toolbar styleClass="hidden sm:flex mb-4">
   <ng-template #start>
     <p-button
       (click)="newClientClick.emit()"
@@ -43,6 +43,46 @@
       />
     }
   </ng-template>
+</p-toolbar>
+
+<p-toolbar styleClass="flex sm:hidden mb-4">
+  <p-iconfield iconPosition="left" styleClass="w-full mb-2">
+    <p-inputicon styleClass="pi pi-search" />
+    <input
+      [ngModel]="search"
+      (ngModelChange)="onValueChange($event)"
+      pInputText
+      type="text"
+      class="w-full"
+      placeholder="Search"
+    />
+  </p-iconfield>
+
+  <p-button
+    (click)="newClientClick.emit()"
+    icon="pi pi-plus"
+    severity="primary"
+    label="new client"
+  />
+  @if (view() === 'table') {
+    <p-button
+      (click)="view.set('card')"
+      icon="pi pi-id-card"
+      outlined
+      severity="contrast"
+      label="card view"
+    />
+  }
+
+  @if (view() === 'card') {
+    <p-button
+      (click)="view.set('table')"
+      icon="pi pi-table"
+      outlined
+      severity="contrast"
+      label="table view"
+    />
+  }
 </p-toolbar>
 
 @if (search$ | async) {}

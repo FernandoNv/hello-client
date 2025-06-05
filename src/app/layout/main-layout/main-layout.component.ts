@@ -8,7 +8,7 @@ import { FooterComponent } from '../../ui/footer/footer.component';
   imports: [HeaderComponent, RouterOutlet, FooterComponent],
   template: `
     <app-header />
-    <main class="px-2 min-h-[calc(100dvh-51.19px-66px)] w-full">
+    <main class="px-2 min-h-[calc(100dvh-53.19px-66px)] w-full">
       <router-outlet />
     </main>
     <app-footer />
