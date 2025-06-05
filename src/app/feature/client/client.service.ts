@@ -15,7 +15,10 @@ export class ClientService implements CrudService<Client> {
 
   getAll(options?: { search: string }) {
     if (!options) {
-      return this.http.get<Client[]>(`${this.URL}/`).pipe(delay(500)).pipe();
+      return this.http
+        .get<Client[]>(`${this.URL}/`)
+        .pipe(delay(500))
+        .pipe(map(clients => this.sortClients(clients)));
     }
 
     return this.http
@@ -29,7 +32,14 @@ export class ClientService implements CrudService<Client> {
             ),
           ),
         ),
+        map(clients => this.sortClients(clients)),
       );
+  }
+
+  private sortClients(clients: Client[]): Client[] {
+    return clients.sort((c1, c2) =>
+      c1.name.toLocaleLowerCase().localeCompare(c2.name.toLocaleLowerCase()),
+    );
   }
 
   delete(id: string) {
