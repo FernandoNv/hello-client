@@ -3,9 +3,8 @@
     <p-button
       (click)="newClientClick.emit()"
       icon="pi pi-plus"
-      class="mr-2"
       severity="primary"
-      label="new client"
+      [label]="'CLIENT_LIST_TOOLBAR_BUTTON_CREATE_CLIENT' | translate"
     />
   </ng-template>
   <ng-template #center>
@@ -16,7 +15,8 @@
         (ngModelChange)="onValueChange($event)"
         pInputText
         type="text"
-        placeholder="Search"
+        class="w-full"
+        [placeholder]="'CLIENT_LIST_TOOLBAR_SEARCH_INPUT' | translate"
       />
     </p-iconfield>
   </ng-template>
@@ -25,10 +25,9 @@
       <p-button
         (click)="view.set('card')"
         icon="pi pi-id-card"
-        class="mr-2"
         outlined
         severity="contrast"
-        label="card view"
+        [label]="'CLIENT_LIST_TOOLBAR_BUTTON_CARD_VIEW' | translate"
       />
     }
 
@@ -36,10 +35,9 @@
       <p-button
         (click)="view.set('table')"
         icon="pi pi-table"
-        class="mr-2"
         outlined
         severity="contrast"
-        label="table view"
+        [label]="'CLIENT_LIST_TOOLBAR_BUTTON_TABLE_VIEW' | translate"
       />
     }
   </ng-template>
@@ -54,7 +52,7 @@
       pInputText
       type="text"
       class="w-full"
-      placeholder="Search"
+      [placeholder]="'CLIENT_LIST_TOOLBAR_SEARCH_INPUT' | translate"
     />
   </p-iconfield>
 
@@ -62,7 +60,7 @@
     (click)="newClientClick.emit()"
     icon="pi pi-plus"
     severity="primary"
-    label="new client"
+    [label]="'CLIENT_LIST_TOOLBAR_BUTTON_CREATE_CLIENT' | translate"
   />
   @if (view() === 'table') {
     <p-button
@@ -70,7 +68,7 @@
       icon="pi pi-id-card"
       outlined
       severity="contrast"
-      label="card view"
+      [label]="'CLIENT_LIST_TOOLBAR_BUTTON_CARD_VIEW' | translate"
     />
   }
 
@@ -80,7 +78,7 @@
       icon="pi pi-table"
       outlined
       severity="contrast"
-      label="table view"
+      [label]="'CLIENT_LIST_TOOLBAR_BUTTON_TABLE_VIEW' | translate"
     />
   }
 </p-toolbar>

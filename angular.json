@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "hello-client": {
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "pt": "src/locale/messages.pt.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,11 +19,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": ["en", "pt"],
             "outputPath": "dist/hello-client",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -51,6 +59,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "pt": {
+              "localize": ["pt"],
+              "outputPath": "dist/hello-client/pt"
             }
           },
           "defaultConfiguration": "production"
@@ -63,6 +75,9 @@
             },
             "development": {
               "buildTarget": "hello-client:build:development"
+            },
+            "pt": {
+              "buildTarget": "hello-client:build:pt"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +90,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [

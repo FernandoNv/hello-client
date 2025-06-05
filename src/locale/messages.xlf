@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="4100260617140096386" datatype="html">
+        <source>Create a New Client</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-create/client-create.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="142489295255474915" datatype="html">
+        <source> Client: <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="INTERPOLATION" equiv-text="{{ client()!.name }}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-edit/client-edit.component.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-list/client-table/client-table.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2390068301065644971" datatype="html">
+        <source>The name is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6945784107584451498" datatype="html">
+        <source>The name must contain at least 3 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4945372712479562395" datatype="html">
+        <source>The name must contain a maximum of 255 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9176036733527615441" datatype="html">
+        <source>The name must have a valid value. Ex: Fulano da Silva</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3219023842767847353" datatype="html">
+        <source>The e-mail is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1308736264202265042" datatype="html">
+        <source>The e-mail must have a valid value. Ex: email@email.com</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8648615569396772736" datatype="html">
+        <source>The e-mail is already taken.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3262236020277300799" datatype="html">
+        <source>Phone</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">77,78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-list/client-table/client-table.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3047040797093395459" datatype="html">
+        <source>The phone is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">81,82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4507247430442717051" datatype="html">
+        <source>The phone must have a valid value</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="431903690061265052" datatype="html">
+        <source>Zip Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">108,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7766199858026296970" datatype="html">
+        <source>The zip code is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">115,116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7408851699901228443" datatype="html">
+        <source>The zip code must be a valid value. Ex: 99999-999</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">123,124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3263227238060830478" datatype="html">
+        <source>Invalid zip code. Try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">128,129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5911214550882917183" datatype="html">
+        <source>State</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">142,143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="105622153949317561" datatype="html">
+        <source>The state is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">149,150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5776223205618877563" datatype="html">
+        <source>The state must contain at least 2 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">157,158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3880477056930695091" datatype="html">
+        <source>The state must contain a maximum of 2 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">165,166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2314075913167237221" datatype="html">
+        <source>City</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">179,180</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2605879979707323318" datatype="html">
+        <source>The city is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">185,186</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8530790051214596949" datatype="html">
+        <source>The city must contain at least 3 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">192,193</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="82199119309496187" datatype="html">
+        <source>The city must contain a maximum of 255 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">199,200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8038201767187601179" datatype="html">
+        <source>The city must have a valid value. Ex: Rio de Janeiro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">206,207</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1847047605496409443" datatype="html">
+        <source>Street</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">222,223</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="482768196986537265" datatype="html">
+        <source>The street is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">229,230</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2285795720319536700" datatype="html">
+        <source>The street must contain at least 3 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">237,238</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1996458029368608290" datatype="html">
+        <source>The street must contain a maximum of 255 characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">245,246</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="332692609062634747" datatype="html">
+        <source>The street must have a valid value</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">253</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6370642728789544052" datatype="html">
+        <source>Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">267,268</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="199088497844193382" datatype="html">
+        <source>The number is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">274,275</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7490847273204515942" datatype="html">
+        <source>Min 1</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">281,282</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5091536977861770484" datatype="html">
+        <source>10000 max</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">288,289</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1177784295770405074" datatype="html">
+        <source>Number only</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-form/client-form.component.html</context>
+          <context context-type="linenumber">296,297</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5910845130937645353" datatype="html">
+        <source>Clients</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-list/client-list.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1890300073702152532" datatype="html">
+        <source>E-mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-list/client-table/client-table.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9216117865911519658" datatype="html">
+        <source>Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client-list/client-table/client-table.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="530829720654524799" datatype="html">
+        <source>Menu Options</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/feature/client/client.component.ts</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

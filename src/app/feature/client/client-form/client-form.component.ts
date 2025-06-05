@@ -20,6 +20,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ZipCodeValidatorDirective } from '../../../ui/form/zip-code/zip-code-validator.directive';
 import { EmailTakenValidatorDirective } from '../../../ui/form/email-taken/email-taken-validator.directive';
 import { ClientDatasource } from '../client.datasource';
+import { TranslatePipe } from '@ngx-translate/core';
 
 export interface IClientFormValue {
   id?: string;
@@ -47,6 +48,7 @@ export interface IClientFormValue {
     ZipCodeValidatorDirective,
     EmailTakenValidatorDirective,
     Button,
+    TranslatePipe,
   ],
   templateUrl: './client-form.component.html',
   styleUrl: './client-form.component.css',

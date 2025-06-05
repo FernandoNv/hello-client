@@ -10,26 +10,26 @@
           formControlName="name"
           autocomplete="off"
         />
-        <label for="name">Name</label>
+        <label for="name" i18n>Name</label>
         <div class="h-6 mt-1">
           @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The name is required
+              <span i18n>The name is required</span>
             </p-message>
           }
           @if (form.get('name')?.hasError('minlength') && form.get('name')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The name must contain at least 3 characters
+              <span i18n>The name must contain at least 3 characters</span>
             </p-message>
           }
           @if (form.get('name')?.hasError('maxlength') && form.get('name')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The name must contain a maximum of 255 characters
+              <span i18n>The name must contain a maximum of 255 characters</span>
             </p-message>
           }
           @if (form.get('name')?.hasError('pattern') && form.get('name')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The name must have a valid value. Ex: Fulano da Silva
+              <span i18n>The name must have a valid value. Ex: Fulano da Silva</span>
             </p-message>
           }
         </div>
@@ -49,17 +49,17 @@
         <div class="h-6 mt-1">
           @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The e-mail is required
+              <span i18n>The e-mail is required</span>
             </p-message>
           }
           @if (form.get('email')?.hasError('pattern') && form.get('email')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The e-mail must have a valid value. Ex: email&#64;email.com
+              <span i18n>The e-mail must have a valid value. Ex: email&#64;email.com</span>
             </p-message>
           }
           @if (form.get('email')?.hasError('emailTaken') && form.get('email')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The e-mail is already taken.
+              <span i18n>The e-mail is already taken.</span>
             </p-message>
           }
         </div>
@@ -74,16 +74,16 @@
           formControlName="phone"
           autocomplete="off"
         />
-        <label for="phone">Phone</label>
+        <label for="phone" i18n>Phone</label>
         <div class="h-6 mt-1">
           @if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The phone is required
+              <span i18n>The phone is required</span>
             </p-message>
           }
           @if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
             <p-message severity="error" variant="simple" size="small">
-              The phone must have a valid value. Ex: 99 99999-9999
+              <span i18n>The phone must have a valid value</span> Ex: 99 99999-9999
             </p-message>
           }
         </div>
@@ -105,14 +105,14 @@
             appZipCodeValidator
             autocomplete="off"
           />
-          <label for="zipCode">Zip Code</label>
+          <label for="zipCode" i18n>Zip Code</label>
           <div class="h-6 mt-1 mt-1">
             @if (
               addressGroup?.get('zipCode')?.hasError('required') &&
               addressGroup?.get('zipCode')?.touched
             ) {
               <p-message class="mt-2" severity="error" variant="simple" size="small">
-                The zip code is required
+                <span i18n>The zip code is required</span>
               </p-message>
             }
             @if (
@@ -120,12 +120,12 @@
               addressGroup?.get('zipCode')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The zip code must be a valid value. Ex: 99999-999
+                <span i18n>The zip code must be a valid value. Ex: 99999-999</span>
               </p-message>
             }
             @if (addressGroup?.get('zipCode')?.hasError('zipCodeApiError')) {
               <p-message severity="error" variant="simple" size="small">
-                Invalid zip code. Try again.
+                <span i18n>Invalid zip code. Try again.</span>
               </p-message>
             }
           </div>
@@ -139,14 +139,14 @@
             formControlName="state"
             autocomplete="off"
           />
-          <label for="state">State</label>
+          <label for="state" i18n>State</label>
           <div class="h-6 mt-1">
             @if (
               addressGroup?.get('state')?.hasError('required') &&
               addressGroup?.get('state')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The state is required
+                <span i18n>The state is required</span>
               </p-message>
             }
             @if (
@@ -154,7 +154,7 @@
               addressGroup?.get('state')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The state must contain at least 2 characters
+                <span i18n>The state must contain at least 2 characters</span>
               </p-message>
             }
             @if (
@@ -162,7 +162,7 @@
               addressGroup?.get('state')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The state must contain a maximum of 2 characters
+                <span i18n>The state must contain a maximum of 2 characters</span>
               </p-message>
             }
           </div>
@@ -176,34 +176,34 @@
             formControlName="city"
             autocomplete="off"
           />
-          <label for="city">City</label>
+          <label for="city" i18n>City</label>
           <div class="h-6 mt-1">
             @if (
               addressGroup?.get('city')?.hasError('required') && addressGroup?.get('city')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The city is required
+                <span i18n>The city is required</span>
               </p-message>
             }
             @if (
               addressGroup?.get('city')?.hasError('minlength') && addressGroup?.get('city')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The city must contain at least 3 characters
+                <span i18n>The city must contain at least 3 characters</span>
               </p-message>
             }
             @if (
               addressGroup?.get('city')?.hasError('maxlength') && addressGroup?.get('city')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The city must contain a maximum of 255 characters
+                <span i18n>The city must contain a maximum of 255 characters</span>
               </p-message>
             }
             @if (
               addressGroup?.get('city')?.hasError('pattern') && addressGroup?.get('city')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The city must have a valid value. Ex: Rio de Janeiro
+                <span i18n>The city must have a valid value. Ex: Rio de Janeiro</span>
               </p-message>
             }
           </div>
@@ -219,14 +219,14 @@
             formControlName="street"
             autocomplete="off"
           />
-          <label for="street">Street</label>
+          <label for="street" i18n>Street</label>
           <div class="h-6 mt-1">
             @if (
               addressGroup?.get('street')?.hasError('required') &&
               addressGroup?.get('street')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The street is required
+                <span i18n>The street is required</span>
               </p-message>
             }
             @if (
@@ -234,7 +234,7 @@
               addressGroup?.get('street')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The street must contain at least 3 characters
+                <span i18n>The street must contain at least 3 characters</span>
               </p-message>
             }
             @if (
@@ -242,7 +242,7 @@
               addressGroup?.get('street')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The street must contain a maximum of 255 characters
+                <span i18n>The street must contain a maximum of 255 characters</span>
               </p-message>
             }
             @if (
@@ -250,7 +250,7 @@
               addressGroup?.get('street')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The street must have a valid value. Ex: Avenida Presidente Vargas
+                <span i18n>The street must have a valid value</span> Ex: Avenida Presidente Vargas
               </p-message>
             }
           </div>
@@ -264,31 +264,37 @@
             formControlName="number"
             autocomplete="off"
           />
-          <label for="number">Number</label>
+          <label for="number" i18n>Number</label>
           <div class="h-6 mt-1">
             @if (
               addressGroup?.get('number')?.hasError('required') &&
               addressGroup?.get('number')?.touched
             ) {
               <p-message severity="error" variant="simple" size="small">
-                The number is required
+                <span i18n>The number is required</span>
               </p-message>
             }
             @if (
               addressGroup?.get('number')?.hasError('min') && addressGroup?.get('number')?.touched
             ) {
-              <p-message severity="error" variant="simple" size="small"> Min 1 </p-message>
+              <p-message severity="error" variant="simple" size="small">
+                <span i18n>Min 1</span>
+              </p-message>
             }
             @if (
               addressGroup?.get('number')?.hasError('max') && addressGroup?.get('number')?.touched
             ) {
-              <p-message severity="error" variant="simple" size="small"> 10000 max </p-message>
+              <p-message severity="error" variant="simple" size="small">
+                <span i18n>10000 max</span>
+              </p-message>
             }
             @if (
               addressGroup?.get('number')?.hasError('pattern') &&
               addressGroup?.get('number')?.touched
             ) {
-              <p-message severity="error" variant="simple" size="small"> Number only </p-message>
+              <p-message severity="error" variant="simple" size="small">
+                <span i18n>Number only</span>
+              </p-message>
             }
           </div>
         </p-iftalabel>
@@ -299,7 +305,7 @@
     <p-button
       [disabled]="form.invalid"
       type="submit"
-      [label]="initialValue() ? 'Update' : 'Submit'"
+      [label]="'CLIENT_FORM_BUTTON_SUBMIT' | translate"
       [loading]="isLoading()"
       severity="success"
     />

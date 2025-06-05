@@ -7,10 +7,20 @@ import { Toolbar } from 'primeng/toolbar';
 import { debounceTime, distinctUntilChanged, Subject, tap } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AsyncPipe } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-client-toolbar',
-  imports: [Button, IconField, InputIcon, InputText, Toolbar, FormsModule, AsyncPipe],
+  imports: [
+    Button,
+    IconField,
+    InputIcon,
+    InputText,
+    Toolbar,
+    FormsModule,
+    AsyncPipe,
+    TranslatePipe,
+  ],
   templateUrl: './client-toolbar.component.html',
   styleUrl: './client-toolbar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

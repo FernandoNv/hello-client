@@ -9,7 +9,9 @@
   </div>
 } @else {
   @if (client()) {
-    <h1 class="text-3xl font-bold mb-4">Client: {{ client()!.name }}</h1>
+    <h1 class="text-3xl font-bold mb-4" i18n>
+      Client: <span>{{ client()!.name }}</span>
+    </h1>
     <app-client-form (save)="onSave($event)" [initialValue]="client()" />
   } @else {
     <p>No client found with the id: {{ id }}</p>

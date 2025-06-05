@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 import { Card } from 'primeng/card';
 import { Button } from 'primeng/button';
 import { Client } from '../../../../core/db/mock-data';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-client-card',
-  imports: [Card, Button],
+  imports: [Card, Button, TranslatePipe],
   template: `
     <p-card
       [style]="{
@@ -25,7 +26,7 @@ import { Client } from '../../../../core/db/mock-data';
         <div class="flex gap-4 mt-1">
           <p-button
             [outlined]="true"
-            label="Edit"
+            [label]="'CLIENT_LIST_ACTION_EDIT' | translate"
             severity="secondary"
             class="w-full"
             styleClass="w-full"
@@ -33,7 +34,7 @@ import { Client } from '../../../../core/db/mock-data';
           />
           <p-button
             [outlined]="true"
-            label="Delete"
+            [label]="'CLIENT_LIST_ACTION_DELETE' | translate"
             severity="danger"
             class="w-full"
             styleClass="w-full"

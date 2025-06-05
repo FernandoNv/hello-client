@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ClientDatasource } from '../client.datasource';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProgressSpinner } from 'primeng/progressspinner';
@@ -9,6 +9,7 @@ import { ClientToolbarComponent } from './client-toolbar/client-toolbar.componen
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ClientTableComponent } from './client-table/client-table.component';
 import { ClientCardListComponent } from './client-card-list/client-card-list.component';
+import { TranslatedValuesService } from '../../../core/translated-values/translated-values.service';
 
 @Component({
   selector: 'app-client-list',
@@ -30,6 +31,38 @@ export class ClientListComponent {
   private readonly confirmationService = inject(ConfirmationService);
   private readonly messageService = inject(MessageService);
 
+  private readonly translate = inject(TranslatedValuesService);
+  private readonly translatedTextPage = this.translate.translatedTextPage;
+
+  private readonly MESSAGE_SUCCESS = computed(() =>
+    this.translatedTextPage() ? this.translatedTextPage()!['MESSAGE_CLIENT_DELETE_SUCCESS'] : '',
+  );
+  private readonly MESSAGE_SUMMARY_SUCCESS = computed(() =>
+    this.translatedTextPage()
+      ? this.translatedTextPage()!['MESSAGE_SUMMARY_CLIENT_DELETE_SUCCESS']
+      : '',
+  );
+  private readonly MESSAGE_ERROR = computed(() =>
+    this.translatedTextPage() ? this.translatedTextPage()!['MESSAGE_CLIENT_DELETE_ERROR'] : '',
+  );
+  private readonly MESSAGE_SUMMARY_ERROR = computed(() =>
+    this.translatedTextPage()
+      ? this.translatedTextPage()!['MESSAGE_SUMMARY_CLIENT_DELETE_ERROR']
+      : '',
+  );
+  private readonly DELETE_BUTTON_CONFIRM = computed(() =>
+    this.translatedTextPage() ? this.translatedTextPage()!['DELETE_CLIENT_BUTTON_CONFIRM'] : '',
+  );
+  private readonly DELETE_BUTTON_CANCEL = computed(() =>
+    this.translatedTextPage() ? this.translatedTextPage()!['DELETE_CLIENT_BUTTON_CANCEL'] : '',
+  );
+  private readonly DELETE_HEADER = computed(() =>
+    this.translatedTextPage() ? this.translatedTextPage()!['DELETE_CLIENT_HEADER'] : '',
+  );
+  private readonly DELETE_MESSAGE = computed(() =>
+    this.translatedTextPage() ? this.translatedTextPage()!['DELETE_CLIENT_MESSAGE'] : '',
+  );
+
   protected readonly view = signal<'card' | 'table'>('table');
 
   protected readonly clients = toSignal(this.clientDataSource.clients$);
@@ -49,20 +82,20 @@ export class ClientListComponent {
 
     this.confirmationService.confirm({
       message: `
-          Are you sure that you want to delete this client? </br>
-          <b>Name:</b> ${client.name}</br>
-          <b>email:</b> ${client.email}
+          ${this.DELETE_MESSAGE()}</br>
+          ${client.name}</br>
+          ${client.email}
       `,
-      header: 'Confirmation',
+      header: this.DELETE_HEADER(),
       closable: true,
       closeOnEscape: true,
       icon: 'pi pi-exclamation-triangle',
       rejectButtonProps: {
-        label: 'Cancel',
+        label: this.DELETE_BUTTON_CANCEL(),
         severity: 'secondary',
       },
       acceptButtonProps: {
-        label: 'Delete',
+        label: this.DELETE_BUTTON_CONFIRM(),
         severity: 'danger',
       },
       accept: () => {
@@ -70,16 +103,16 @@ export class ClientListComponent {
           if (next) {
             this.messageService.add({
               severity: 'success',
-              summary: 'Confirmed',
-              detail: 'Client deleted!',
+              detail: this.MESSAGE_SUCCESS(),
+              summary: this.MESSAGE_SUMMARY_SUCCESS(),
             });
             return;
           }
 
           this.messageService.add({
             severity: 'error',
-            summary: 'Error deleting the client',
-            detail: 'Something went wrong!',
+            detail: this.MESSAGE_ERROR(),
+            summary: this.MESSAGE_SUMMARY_ERROR(),
           });
         });
       },

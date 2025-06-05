@@ -12,10 +12,10 @@
     >
       <ng-template #header>
         <tr>
-          <th>Name</th>
-          <th>E-mail</th>
-          <th>Phone</th>
-          <th>Action</th>
+          <th i18n>Name</th>
+          <th i18n>E-mail</th>
+          <th i18n>Phone</th>
+          <th i18n>Action</th>
         </tr>
       </ng-template>
       <ng-template #body let-client>
@@ -27,7 +27,7 @@
             <div class="flex gap-4 mt-1">
               <p-button
                 [outlined]="true"
-                label="Edit"
+                [label]="'CLIENT_LIST_ACTION_EDIT' | translate"
                 severity="contrast"
                 class="w-full"
                 styleClass="w-full"
@@ -35,7 +35,7 @@
               />
               <p-button
                 [outlined]="true"
-                label="Delete"
+                [label]="'CLIENT_LIST_ACTION_DELETE' | translate"
                 severity="danger"
                 class="w-full"
                 styleClass="w-full"
