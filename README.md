@@ -28,9 +28,8 @@ O **hello-client** é um sistema de front-end desenvolvido em Angular com o obje
 Clone o repositório:
 
 ```bash
-git clone https://github.com/FernandoNv/hello-client
+git clone https://github.com/FernandoNv/hello-client.git
 cd hello-client
-
 ```
 
 ### Rodar a aplicação
