@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page not found – Redirecting...</title>
+    <script>
+      (function () {
+        const userLang = navigator.language || navigator.userLanguage;
+        const lang = userLang.startsWith('pt') ? 'pt' : 'en';
+        window.location.replace(`/${lang}/`);
+      })();
+    </script>
+  </head>
+  <body>
+    Page not found. Redirecting to the default language...
+  </body>
+</html>

@@ -19,6 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "hello-client",
             "localize": ["en", "pt"],
             "outputPath": "dist/hello-client",
             "index": "src/index.html",
