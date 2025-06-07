@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="onSave()">
-  <p-fieldset styleClass="mb-8" legend="Personal information">
+  <p-fieldset styleClass="mb-8" [legend]="'CLIENT_FORM_PERSONAL_INFORMATION' | translate">
     <section class="py-2 pt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
       <p-iftalabel>
         <input
@@ -90,7 +90,7 @@
       </p-iftalabel>
     </section>
   </p-fieldset>
-  <p-fieldset styleClass="mb-8" legend="Address information">
+  <p-fieldset styleClass="mb-8" [legend]="'CLIENT_FORM_ADDRESS_INFORMATION' | translate">
     <section formGroupName="address" class="py-2 pt-6">
       @let addressGroup = form.get('address');
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-4">
