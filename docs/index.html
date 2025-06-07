@@ -7,7 +7,8 @@
     <script>
       (function () {
         const userLang = navigator.language || navigator.userLanguage;
-        const lang = userLang.includes('/pt/') ? 'pt' : 'en';
+        const lang = userLang.startsWith('pt') ? 'pt' : 'en';
+        debugger;
         window.location.replace(`${lang}/`);
       })();
     </script>
