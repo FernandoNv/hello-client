@@ -5,7 +5,7 @@
     "ng": "ng",
     "start-build": "ng build && npx http-server .\\dist\\hello-client\\browser\\",
     "start": "ng serve",
-    "build": "ng build --localize",
+    "build": "ng build --localize --base-href=/hello-client/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",

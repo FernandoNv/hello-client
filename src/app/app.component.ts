@@ -17,10 +17,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.translate.addLangs(['en', 'pt']);
-    // debugger;
+    const path = location.pathname;
 
-    const path = window.location.pathname;
-    const langFromPath = path.startsWith('/pt') ? 'pt' : 'en';
+    const langFromPath = path.includes('/pt/') ? 'pt' : 'en';
     this.translate.use(langFromPath);
   }
 }
